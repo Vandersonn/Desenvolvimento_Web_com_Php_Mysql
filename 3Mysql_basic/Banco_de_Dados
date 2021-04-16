@@ -1,0 +1,44 @@
+CREATE SCHEMA `escola_curso`;
+
+
+
+INSERT INTO `alunos`(`id_aluno`, `nome`, `data_nascimento`, `cpf`, `estado`, `endereco`, `email`)
+ VALUES ('01','Hera flores','1989-12-23','23561498751','MG','Rua anamise 256','hera@gmail.com')
+INSERT INTO `alunos`(`id_aluno`, `nome`, `data_nascimento`, `cpf`, `estado`, `endereco`, `email`)
+ VALUES ('02','Ana flores','1979-12-03','23561494451','SP','Rua das dores 42565','anaina@gmail.com')
+INSERT INTO `alunos`(`id_aluno`, `nome`, `data_nascimento`, `cpf`, `estado`, `endereco`, `email`)
+ VALUES ('03','Jana flores','1986-10-23','23561432151','SP','Rua das Maricas 425','anja@gmail.com')
+INSERT INTO `alunos`(`id_aluno`, `nome`, `data_nascimento`, `cpf`, `estado`, `endereco`, `email`)
+ VALUES ('04','Maria flores','1988-10-23','23561432141','SP','Rua das Ricas 4252','maraa@gmail.com')
+INSERT INTO `alunos`(`id_aluno`, `nome`, `data_nascimento`, `cpf`, `estado`, `endereco`, `email`)
+ VALUES ('05','Jana Castro','1978-05-13','23561432122','Bh','Rua das Juanitas 4225','janaina@gmail.com')
+INSERT INTO `alunos`(`id_aluno`, `nome`, `data_nascimento`, `cpf`, `estado`, `endereco`, `email`)
+VALUES ('04','José flores','1977-08-23','23561432181','MG','Avenida das Ricas 5462','josereo@gmail.com')
+
+CREATE TABLE `escola_curso`.`alunos_cursos` (
+  `id_alunos_cursos` INT NOT NULL AUTO_INCREMENT,
+  `id_aluno` INT NOT NULL,
+  `id_curso` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_alunos_cursos`));
+
+-- auto-generated definition
+select * from alunos;
+select * from alunos_cursos;
+
+select A.nome, AC.id_curso
+from alunos A, alunos_cursos AC
+where A.id_aluno = AC.id_aluno
+
+
+-- auto-generated definition
+select * from alunos;
+select * from alunos_cursos;
+
+select A.nome, C.nome, N.descricao_atividade, N.vlr_nota,
+from alunos A, , cursos C,
+    alunos_cursos AC,
+    notas N
+where A.id_aluno = AC.id_aluno and C.id_curso = AC.id_curso and AC.id_aluno_curso = N.id_aluno_curso
+
+
+
